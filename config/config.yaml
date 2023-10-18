@@ -1,0 +1,5 @@
+steps:
+  create_mask: False
+  polynomial_fit: False
+  pca_substraction: True
+  power_spectrum: True
