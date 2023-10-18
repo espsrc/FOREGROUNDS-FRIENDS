@@ -8,3 +8,89 @@ The FOREGROUNDS-FRIENDS team is lead by Diego Herranz (IFCA). More details to co
 ## Reproducibility
 The FOREGROUNDS-FRIENDS team participates with the [Reproducibility Badge in mind](https://sdc3.skao.int/reproducibility-badges) with the aim of making this solution open, reproducible and reusable. 
 
+## Installation
+
+To deploy this project, first you need to install conda, download the pipeline from Github and install the environment.
+
+### 1. Get conda
+
+You don't need to run this if you already have a working `conda` installation. If you don't have `conda` follow the steps below to install it in the local directory `conda-install`. We will use the light-weight version `miniconda`. We also install `mamba`, which is a very fast dependency solver for conda. 
+
+```bash
+ curl --output Miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+ bash Miniconda.sh -b -p conda-install
+ source conda-install/etc/profile.d/conda.sh
+ conda install mamba --channel conda-forge --yes
+```
+
+
+### 2. Get the pipeline and install the dependencies
+
+```bash
+git clone https://github.com/espsrc/FOREGROUNDS-FRIENDS.git
+cd 
+mamba env create -f environment.yml
+conda activate snakemake
+```
+
+If you have created the environemnt already, simply activate it by running the last command.
+
+### 3. Execute the workflow
+
+TBD
+
+## Workflow
+
+The workflow consists of four stages
+
+### create_mask
+
+Describe process [TBD]
+
+### polynomial_fit
+
+Describe process [TBD]
+
+### pca_substraction
+
+Describe process [TBD]
+
+### power_spectrum
+
+Describe process [TBD]
+
+
+
+## File structure
+
+```
+.
+├── config
+│   └── config.yaml
+├── environment.yml
+├── env_pseor.yml
+├── LICENSE
+├── README.md
+└── workflow
+    ├── create_mask
+    │   ├── config
+    │   │   ├── default.conv
+    │   │   ├── default.nnw
+    │   │   ├── default.param
+    │   │   ├── default.psf
+    │   │   ├── default.sex
+    │   │   ├── gauss_4.0_7x7.conv
+    │   │   └── mexhat_2.0_7x7.conv
+    │   ├── mask.ipynb
+    │   ├── pipeline.ipynb
+    │   └── README.md
+    ├── pca_substraction
+    │   └── PCA_real_data.ipynb
+    ├── polynomial_fit
+    │   ├── PolyFit.py
+    │   └── README.md
+    └── power_spectrum
+        └── PS_estimation_with_ps_eor.ipynb
+```
+
+After running the workflow, the results of each step will be stored in the `results` directory.
