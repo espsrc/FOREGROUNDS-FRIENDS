@@ -71,7 +71,9 @@ where:
 <log> is a boolean flag indicating whether to use log-log space (True) or linear space (False) for the polynomial fit
 
 #### Example
+```bash
 python polyfit_fft.py ZW3.image_cube.fits /home/user/ 3 True
+```
 
 This will apply a third-degree polynomial fit to the FFT of each pixel in log-log space, remove the foregrounds, and save the output files to /home/user .
 
