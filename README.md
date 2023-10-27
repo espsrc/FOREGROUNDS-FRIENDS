@@ -55,7 +55,9 @@ It also performs foreground removal and image reconstruction.
 #### Requirements
 
 Python 3.6 or higher
+
 numpy
+
 astropy
 
 #### Usage
