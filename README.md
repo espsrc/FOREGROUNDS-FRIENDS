@@ -49,6 +49,7 @@ Describe process [TBD]
 
 ### polynomial_fit
 
+This step is an alternative to pca_subtraction.
 This script applies a polynomial fit to the real and imaginary parts of the fast Fourier transform (FFT) of the images, which are in FITS format and have 901 channels (106 MHz to 196 MHz with 0.1MHz channel width) and 2048x2048 pixels each.
 It also performs foreground removal and image reconstruction. 
 
