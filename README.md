@@ -80,7 +80,8 @@ This will apply a third-degree polynomial fit to the FFT of each pixel in log-lo
 
 #### Output
 The script will generate several temporary files to save RAM memory. These files will be removed at the end.
-The script will save each slice of the reconstructed cube to a FITS file into the directory specified by the user.
+The script will save each slice of the reconstructed cube to a FITS file into the directory specified by the user. 
+Output filenames follow the pattern `data_clean_i.fits`, where `i` represents the channel number and ranges from 1 to 901.
 
 ### pca_substraction
 
