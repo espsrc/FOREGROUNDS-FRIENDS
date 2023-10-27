@@ -7,7 +7,6 @@ Requirements
 Python 3.6 or higher
 numpy
 astropy
-matplotlib
 
 python PolyFit.py <input_file> <output_file> <degree> <log>
 
