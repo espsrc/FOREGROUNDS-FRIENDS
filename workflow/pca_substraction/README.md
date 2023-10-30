@@ -2,14 +2,14 @@
 Python 3.8 or greater
 Numpy, Matplotlib, Astropy, tqdm, configparser, scipy, os
 
-## Introduction
+## Introduction:
 In this step, we perform foreground removal of the data cube by applying a 4 component Principal Component Analysis (PCA) [Irfan & Bull. MNRAS, 2021].
 This kind of analysis only uses frequency information and their correlation, losing the spatial information of the image.
 
 The original data cube is $8\times 8$ degrees FoV, but in order to limit the noise, only the central $4 \times 4$ degrees are meant to be used for the power spectrum computation. For that reason, only this central part will be used as an input for the PCA cleaning step.
 
 This step is implemented in the jupyter notebook PCA_data_SDC3.ipynb.
-## Description of the algorithm
+## Description of the algorithm:
 The PCA algorithm works as follows.
 
 1. Converts the 3-dimensional data cube of dimensions $N_{\text{freq}}\times N_{pix}\times N_{pix}$ in a 2-dimensional array of dimensions $N_{\text{freq}}\times N_{pix}^2$ using a method called reshaping. $N_{\text{freq}}$ is the number of frequencies in the cube (equal to 901) and $N_{pix}$ is the number of pixel in the $x/y$ axis (equal to 900). From now on, this reshaped 2d data set will be referred to as $D$.
@@ -24,7 +24,7 @@ where the $A$ is a diagonal matrix of eigenvalues of $C$ and $V$ contains $N_{\t
 6. Finally, we project to the component space (with only four components) and then back to the image space, which contains almost all the foregrounds. The four component PCA image is named $F$ and it is corrected by the mean of the original data in order to get an unbiased result:
     $$F = WW^TD + \overline{D}.$$
 
-## Foreground removal step
+## Foreground removal step:
 Subtracting the 4-component PCA image to the original image, the residual would be the underlying 21 cm signal. In order to reduce the otherwise dominant noise, we decide to perform a Gaussian smoothing which have shown a better result when computing the 2d power spectrum.
 
 The output of this step is a frequency-binned cube, in which the full frequency range of 90 MHz is divided into 15 MHz intervals required for the power spectrum estimation.
