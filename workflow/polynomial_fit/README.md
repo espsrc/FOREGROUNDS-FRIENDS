@@ -9,9 +9,9 @@ numpy
 astropy
 
 Usage
-
+```bash
 python PolyFit.py <input_file> <output_file> <degree> <log>
-
+```
 where:
 
 <input_file> is the name of the FITS file containing the image cube
