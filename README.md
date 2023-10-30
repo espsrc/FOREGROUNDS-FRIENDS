@@ -62,14 +62,19 @@ numpy
 astropy
 
 #### Usage
+Usage
+```bash
 python PolyFit.py <input_file> <output_file> <degree> <log>
-
+```
 where:
 
-<input_file> is the name of the FITS file containing the image cube
-<output_file> is the name of the FITS file where the reconstructed image cube will be saved
-<degree> is the degree of the polynomial to fit to the FFT
-<log> is a boolean flag indicating whether to use log-log space (True) or linear space (False) for the polynomial fit
+`<input_file>` is the name of the FITS file containing the image cube
+
+`<output_file>` is the name of the FITS file where the reconstructed image cube will be saved
+
+`<degree>` is the degree of the polynomial to fit to the FFT
+
+`<log>` is a boolean flag indicating whether to use log-log space (True) or linear space (False) for the polynomial fit
 
 #### Example
 ```bash
