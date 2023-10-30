@@ -73,7 +73,7 @@ where:
 
 #### Example
 ```bash
-python polyfit_fft.py ZW3.image_cube.fits /home/user/results/ 3 True
+python Polyfit.py ZW3.image_cube.fits /home/user/results/ 3 True
 ```
 
 This will apply a third-degree polynomial fit to the FFT of each pixel in log-log space, remove the foregrounds, and save the output files to /home/user .
