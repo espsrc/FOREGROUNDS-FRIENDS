@@ -85,7 +85,9 @@ Output filenames follow the pattern `data_clean_i.fits`, where `i` represents th
 
 ### pca_substraction
 
-Describe process [TBD]
+In this step, we perform foreground removal of the data cube by applying a 4 component Principal Component Analysis (PCA) \cite{PCA_clean}. This kind of analysis only uses frequency information and their correlation, losing the spatial information of the image.
+
+The original data cube is 8$\times$8 degrees FoV, but in order to limit the noise, only the central 4$\times$4 degrees are meant to be used for the power spectrum computation. For that reason, only this central part will be used as an input for the PCA cleaning step.
 
 ### power_spectrum
 
