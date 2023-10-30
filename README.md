@@ -37,11 +37,11 @@ If you have created the environemnt already, simply activate it by running the l
 
 ### 3. Execute the workflow
 
-The workflow consist of three main steps. The first step is the creation of a point source mask which it is optional as we are only using it for visualization purposes. In the second step we use two independent foreground removal algorithms to obtain the 21 cm signal. The first one is a polynomial fit in the visibilities and the second one is a PCA cleaning in the image. The best algorithm seems to be the PCA cleaning, so this is the one
+The workflow consist of three main steps. The first step is the creation of a point source mask which it is optional as we are only using it for visualization purposes. In the second step we use two independent foreground removal algorithms to obtain the 21 cm signal. The first one is a polynomial fit in the visibilities and the second one is a PCA cleaning in the image. The best algorithm seems to be the PCA cleaning, so this is the one used to generate the cleaned images used for the power spectrum estimation. Last, we estimate the 2d power spectrum with their error bars for each of the six frequency bins.
 
 ## Workflow
 
-The workflow consists of four stages
+The workflow consists of three main stages:
 
 ### 1. create_mask (optional)
 
@@ -103,11 +103,11 @@ where the $A$ is a diagonal matrix of eigenvalues of $C$ and $V$ contains $N_{\t
     $$A, V \longmapsto \widetilde{A}, \widetilde{V}.$$
 5. We decide to keep only the first four components ($ncomp=4$), because our simulations have shown that this is the number which leads to the smallest reconstruction error. For that purpose, we define the following matrix,
     $$W = \widetilde{V}[:, :ncomp]\in \mathbb{R}^{N_{\text{freq}}\times ncomp}.$$
-6. Finally, we project to the component space (with only four components) and then back to the image space, which in principle should contain almost all the foregrounds. The four component PCA image is named $F$ and it is corrected by the mean of the original data in order to get an unbiased result:
+6. Finally, we project to the component space (with only four components) and then back to the image space, which contains almost all the foregrounds. The four component PCA image is named $F$ and it is corrected by the mean of the original data in order to get an unbiased result:
     $$F = WW^TD + \overline{D}.$$
 
 #### Foreground removal step
-Subtracting the 4-component PCA image to the original image, we are in principle capable to reconstruct the underlying 21 cm signal. In order to reduce the otherwise dominant noise, we decide to perform a Gaussian smoothing which have shown a better result when computing the 2d power spectrum.
+Subtracting the 4-component PCA image to the original image, the residual would be the underlying 21 cm signal. In order to reduce the otherwise dominant noise, we decide to perform a Gaussian smoothing which have shown a better result when computing the 2d power spectrum.
 
 The output of this step is a frequency-binned cube, in which the full frequency range of 90 MHz is divided into 15 MHz intervals required for the power spectrum estimation.
 
