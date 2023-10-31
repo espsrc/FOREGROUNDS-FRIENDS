@@ -118,9 +118,15 @@ The output of this step is a frequency-binned cube, in which the full frequency 
 
 ### 3. power_spectrum
 
-Describe process [TBD]
+The power spectrum allows us to study the distribution of fluctuations of the EoR signal at different scales (spatial or spectral). The HI signal from the EoR evolves with the frequency, i.e. with the redshift; yet, it can be considered isotropic at small frequency bins. Instrumental and foreground effects also evolve with the frequency but cannot be considered isotropic. For this reason, the cylindrical 2D power spectrum is used to analyse and correct line of sight effects while the spherical power spectrum is used for clean EoR signal. For more information see e.g. [1,2,3,4,5]
 
+This step estimates the cylindrical power spectrum and its errors from 3D FITS images using the ps_eor python package (https://gitlab.com/flomertens/ps_eor). It takes as input the FITS files produced in the previous step, either using the polynomial fit or the PCA substaction method, and the PSF of the original image. The output are various text files with the power spectra and errors, following the submission format of the SDC3. A detailed description of the process followed in this step is given in the folder "workflow/power_spectrum". That folder, appart from the notebook for the PS estimation, includes another notebook to transform the images into the required format.
 
+[1] Nithyanandan Thyagarajan et al 2013 ApJ 776 6<br>
+[2] Giri, Sambit K., "Tomographic studies of the 21-cm signal during reionization: Going beyond the power spectrum", 978-91-7797-611-0<br>
+[3] Zhaoting Chen, Emma Chapman, Laura Wolz, Aishrila Mazumder, Detecting the H i power spectrum in the post-reionization Universe with SKA-Low, Monthly Notices of the Royal Astronomical Society, Volume 524, Issue 3, September 2023, Pages 3724–3740, https://doi.org/10.1093/mnras/stad2102<br>
+[4]  Joshua S. Dillon et al 2014 Phys. Rev. D 89, 023002<br>
+[5] Liu, A. and Tegmark, M., “A method for 21 cm power spectrum estimation in the presence of foregrounds”, <i>Physical Review D</i>, vol. 83, no. 10, 2011. doi:10.1103/PhysRevD.83.103006.<br>
 
 ## File structure
 
