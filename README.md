@@ -45,7 +45,9 @@ The workflow consists of three main stages:
 
 ### 1. create_mask (optional)
 
-Describe process [TBD]
+We apply the sextractor software separately to each of the images in the data cube, in order to create a source catalog for each frequency. Sextractor configuration files have been adjusted to adapt to unique conditions in the Challenge. We also include a "main" catalog, containing only those sources that can be detected in most frequencies. To aid the study of background radiation, we create a masked data cube, a copy of the original cube where all detected sources are blanked out.
+
+Once we obtained the catalog using Sextractor, we proceeded to train a convolutional network to improve the representation of the point sources. We took sources of a size of 8x8 pixels, using as centers the points that Sextractor had inferred. The goal was to optimize the identification and classification of point sources in the images. With the network trained, we generated a data cube where each pixel was assigned a probability based on the presence of a point source. Subsequently, we applied a threshold to these probabilities to classify and locate the found point sources. This modified and optimized data cube was then used as a mask, allowing us to analyze regions of interest with minimal interference from unwanted point sources or background noise.
 
 ### 2.1. polynomial_fit
 
