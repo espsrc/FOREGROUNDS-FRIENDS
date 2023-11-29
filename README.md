@@ -23,7 +23,7 @@ You don't need to run this if you already have a working `conda` installation. T
 git clone https://github.com/espsrc/FOREGROUNDS-FRIENDS.git
 cd FOREGROUNDS-FRIENDS
 mamba env create -f environment.yml
-conda activate snakemake
+conda activate pseor
 ```
 
 If you have created the environemnt already, simply activate it by running the last command.
