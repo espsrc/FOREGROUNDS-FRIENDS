@@ -14,21 +14,14 @@ To deploy this project, first you need to install conda, download the pipeline f
 
 ### 1. Get conda
 
-You don't need to run this if you already have a working `conda` installation. If you don't have `conda` follow the steps below to install it in the local directory `conda-install`. We will use the light-weight version `miniconda`. We also install `mamba`, which is a very fast dependency solver for conda. 
-
-```bash
- curl --output Miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
- bash Miniconda.sh -b -p conda-install
- source conda-install/etc/profile.d/conda.sh
- conda install mamba --channel conda-forge --yes
-```
+You don't need to run this if you already have a working `conda` installation. To install `conda` and `mamba` through miniconda follow the instructions in [Installing miniconda](https://droplets-spsrc.readthedocs.io/conda/#installing-miniconda).
 
 
 ### 2. Get the pipeline and install the dependencies
 
 ```bash
 git clone https://github.com/espsrc/FOREGROUNDS-FRIENDS.git
-cd 
+cd FOREGROUNDS-FRIENDS
 mamba env create -f environment.yml
 conda activate snakemake
 ```
