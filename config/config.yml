@@ -1,0 +1,6 @@
+workflow_steps_notebooks:
+  - workflow/create_mask/pipeline.ipynb
+  - workflow/pca_substraction/PCA_data_SDC3.ipynb
+  - workflow/polynomial_fit/PolyFit.py
+  - workflow/power_spectrum/processing.ipynb
+  - workflow/power_spectrum/ps_estimation.ipynb
