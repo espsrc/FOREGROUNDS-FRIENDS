@@ -122,7 +122,7 @@ More details about the `power_spectrum` step can be found in the [README](workfl
 This is the structure of the workflow directory
 
 ```
-.
+workflow/
 ├── create_mask
 │   ├── README.md
 │   ├── default.conv
@@ -151,6 +151,8 @@ This is the structure of the workflow directory
     ├── processing.ipynb
     ├── ps_config.ini
     └── ps_estimation.ipynb
+
+5 directories, 23 files
 ```
 
 ## Reproducibility
