@@ -56,43 +56,18 @@ We apply the sextractor software separately to each of the images in the data cu
 
 Once we obtained the catalog using Sextractor, we proceeded to train a convolutional network to improve the representation of the point sources. We took sources of a size of 8x8 pixels, using as centers the points that Sextractor had inferred. The goal was to optimize the identification and classification of point sources in the images. With the network trained, we generated a data cube where each pixel was assigned a probability based on the presence of a point source. Subsequently, we applied a threshold to these probabilities to classify and locate the found point sources. This modified and optimized data cube was then used as a mask, allowing us to analyze regions of interest with minimal interference from unwanted point sources or background noise.
 
+More details about the `create_mask` step can be found in the [README](workflow/create_mask/README.md).
+
 ### 2.1. polynomial_fit
 
 This step is an alternative to pca_subtraction.
 This script applies a polynomial fit to the real and imaginary parts of the fast Fourier transform (FFT) of the images, which are in FITS format and have 901 channels (106 MHz to 196 MHz with 0.1MHz channel width) and 2048x2048 pixels each.
-It also performs foreground removal and image reconstruction. 
+It also performs foreground removal and image reconstruction.
 
-#### Requirements
+More details about the `polynomial_fit` step can be found in the [README](workflow/polynomial_fit/README.md).
 
-Python 3.6 or higher
+Output
 
-numpy
-
-astropy
-
-#### Usage
-Usage
-```bash
-python PolyFit.py <input_file> <output_file> <degree> <log>
-```
-where:
-
-`<input_file>` is the name of the FITS file containing the image cube
-
-`<output_file>` is the name of the FITS file where the reconstructed image cube will be saved
-
-`<degree>` is the degree of the polynomial to fit to the FFT
-
-`<log>` is a boolean flag indicating whether to use log-log space (True) or linear space (False) for the polynomial fit
-
-#### Example
-```bash
-python Polyfit.py ZW3.image_cube.fits /home/user/results/ 3 True
-```
-
-This will apply a third-degree polynomial fit to the FFT of each pixel in log-log space, remove the foregrounds, and save the output files to /home/user .
-
-#### Output
 The script will generate several temporary files to save RAM memory. These files will be removed at the end.
 The script will save each slice of the reconstructed cube to a FITS file into the directory specified by the user. 
 Output filenames follow the pattern `data_clean_i.fits`, where `i` represents the channel number and ranges from 1 to 901.
@@ -125,6 +100,9 @@ Subtracting the 4-component PCA image to the original image, the residual would 
 
 The output of this step is a frequency-binned cube, in which the full frequency range of 90 MHz is divided into 15 MHz intervals required for the power spectrum estimation.
 
+More details about the `pca_substraction` step can be found in the [README](workflow/pca_substraction/README.md).
+
+
 ### 3. power_spectrum
 
 The power spectrum allows us to study the distribution of fluctuations of the EoR signal at different scales (spatial or spectral). The HI signal from the EoR evolves with the frequency, i.e. with the redshift; yet, it can be considered isotropic at small frequency bins. Instrumental and foreground effects also evolve with the frequency but cannot be considered isotropic. For this reason, the cylindrical 2D power spectrum is used to analyse and correct line of sight effects while the spherical power spectrum is used for clean EoR signal. For more information see e.g. [1,2,3,4,5]
@@ -136,6 +114,9 @@ This step estimates the cylindrical power spectrum and its errors from 3D FITS i
 [3] Zhaoting Chen, Emma Chapman, Laura Wolz, Aishrila Mazumder, Detecting the H i power spectrum in the post-reionization Universe with SKA-Low, Monthly Notices of the Royal Astronomical Society, Volume 524, Issue 3, September 2023, Pages 3724–3740, https://doi.org/10.1093/mnras/stad2102<br>
 [4]  Joshua S. Dillon et al 2014 Phys. Rev. D 89, 023002<br>
 [5] Liu, A. and Tegmark, M., “A method for 21 cm power spectrum estimation in the presence of foregrounds”, <i>Physical Review D</i>, vol. 83, no. 10, 2011. doi:10.1103/PhysRevD.83.103006.<br>
+
+More details about the `power_spectrum` step can be found in the [README](workflow/power_spectrum/README.md).
+
 
 ## File structure
 This is the structure of the workflow directory
