@@ -6,6 +6,6 @@ authors:
     orcid: 0000-0002-5599-2647
 title: "FOREGROUND-FRIENDS participation in the SKA Data Challenge 3"
 version: "1.0"
-doi: "TBD"
+doi: "https://zenodo.org/doi/10.5281/zenodo.10234313"
 date-released: "2023-11-30"
 repository-code: "https://github.com/espsrc/FOREGROUNDS-FRIENDS"
