@@ -30,6 +30,12 @@ If you have created the environemnt already, simply activate it by running the l
 
 ### 3. Execute the workflow
 
+To execute the workflow, you must run the python script 
+
+```
+python workflow/execute_foregrounds_friends.py
+```
+
 The workflow consist of three main steps. The first step is the creation of a point source mask which it is optional as we are only using it for visualization purposes. In the second step we use two independent foreground removal algorithms to obtain the 21 cm signal. The first one is a polynomial fit in the visibilities and the second one is a PCA cleaning in the image. The best algorithm seems to be the PCA cleaning, so this is the one used to generate the cleaned images used for the power spectrum estimation. Last, we estimate the 2d power spectrum with their error bars for each of the six frequency bins in the appropiate format for submission.
 
 ## Workflow
@@ -124,38 +130,38 @@ This step estimates the cylindrical power spectrum and its errors from 3D FITS i
 [5] Liu, A. and Tegmark, M., “A method for 21 cm power spectrum estimation in the presence of foregrounds”, <i>Physical Review D</i>, vol. 83, no. 10, 2011. doi:10.1103/PhysRevD.83.103006.<br>
 
 ## File structure
+This is the structure of the workflow directory
 
 ```
 .
-├── config
-│   └── config.yaml
-│   └── configfile_data_PCA.ini
-├── environment.yml
-├── env_pseor.yml
-├── LICENSE
-├── README.md
-└── workflow
-    ├── create_mask
-    │   ├── config
-    │   │   ├── default.conv
-    │   │   ├── default.nnw
-    │   │   ├── default.param
-    │   │   ├── default.psf
-    │   │   ├── default.sex
-    │   │   ├── gauss_4.0_7x7.conv
-    │   │   └── mexhat_2.0_7x7.conv
-    │   ├── mask.ipynb
-    │   ├── pipeline.ipynb
-    │   └── README.md
-    ├── pca_substraction
-    │   └── PCA_data_SDC3.ipynb
-    │   └── PCA_functions.py
-    │   └── README.md
-    ├── polynomial_fit
-    │   ├── PolyFit.py
-    │   └── README.md
-    └── power_spectrum
-        └── PS_estimation_with_ps_eor.ipynb
+├── create_mask
+│   ├── README.md
+│   ├── default.conv
+│   ├── default.nnw
+│   ├── default.param
+│   ├── default.psf
+│   ├── default.sex
+│   ├── gauss_4.0_7x7.conv
+│   ├── mask.ipynb
+│   ├── mexhat_2.0_7x7.conv
+│   └── pipeline.ipynb
+├── download_data
+│   └── download.sh
+├── execute_foregrounds_friends.py
+├── pca_substraction
+│   ├── PCA_data_SDC3.ipynb
+│   ├── PCA_functions.py
+│   └── README.md
+├── polynomial_fit
+│   ├── PolyFit.py
+│   └── README.md
+└── power_spectrum
+    ├── PS estimation with ps_eor.ipynb
+    ├── README.md
+    ├── process_config.ini
+    ├── processing.ipynb
+    ├── ps_config.ini
+    └── ps_estimation.ipynb
 ```
 
-After running the workflow, the results of each step will be stored in the `results` directory.
+After running the workflow, the results of each step will be stored in the `results` directory. The contents of the workflow, included the notebooks to be executed, will be copied to the `results` directory and executed in situ. The original workflow is left untouched in the `workflow` directory.
