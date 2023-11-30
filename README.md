@@ -5,8 +5,6 @@ The SKA Data Challenge 3a - Epoch of Reionisation is described in the [SDC3a pag
 
 The FOREGROUNDS-FRIENDS team is lead by Diego Herranz (IFCA). More details to come.
 
-## Reproducibility
-The FOREGROUNDS-FRIENDS team participates with the [Reproducibility Badge in mind](https://sdc3.skao.int/reproducibility-badges) with the aim of making this solution open, reproducible and reusable. 
 
 ## Installation
 
@@ -41,6 +39,16 @@ The workflow consist of three main steps. The first step is the creation of a po
 ## Workflow
 
 The workflow consists of three main stages:
+
+### 0. Download data
+
+This script will download the following files from the SKAO SDC3 [Dataset webpage](https://sdc3.skao.int/challenges/foregrounds/data):
+
+```
+ZW3.msw_psf.fits
+ZW3.msw_image.fits
+```
+Each file has a size of 15GB. They will be downloaded into the directory `data` in the home directory.
 
 ### 1. create_mask (optional)
 
@@ -163,5 +171,9 @@ This is the structure of the workflow directory
     ├── ps_config.ini
     └── ps_estimation.ipynb
 ```
+
+## Reproducibility
+The FOREGROUNDS-FRIENDS team participates with the [Reproducibility Badge in mind](https://sdc3.skao.int/reproducibility-badges) with the aim of making this solution open, reproducible and reusable. 
+
 
 After running the workflow, the results of each step will be stored in the `results` directory. The contents of the workflow, included the notebooks to be executed, will be copied to the `results` directory and executed in situ. The original workflow is left untouched in the `workflow` directory.
