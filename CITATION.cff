@@ -1,0 +1,11 @@
+cff-version: 1.1.0
+message: If you use this software, please cite it as below.
+authors:
+  - family-names: Darriba
+    given-names: Laura
+    orcid: 0000-0002-5599-2647
+title: "FOREGROUND-FRIENDS participation in the SKA Data Challenge 3"
+version: "1.0"
+doi: "TBD"
+date-released: "2023-11-30"
+repository-code: "https://github.com/espsrc/FOREGROUNDS-FRIENDS"
