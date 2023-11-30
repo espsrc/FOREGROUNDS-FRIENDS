@@ -1,4 +1,9 @@
 # FOREGROUNDS-FRIENDS
+
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10234314.svg)](https://doi.org/10.5281/zenodo.10234314)
+
+
 ## The SKA data challenge 3a
 
 The SKA Data Challenge 3a - Epoch of Reionisation is described in the [SDC3a page](https://sdc3.skao.int/overview).
