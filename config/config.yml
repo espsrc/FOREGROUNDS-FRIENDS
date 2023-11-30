@@ -1,12 +1,24 @@
-workflow_steps_notebooks:
-  - workflow/create_mask/pipeline.ipynb
-  - workflow/create_mask/mask.ipynb
-  - workflow/pca_substraction/PCA_data_SDC3.ipynb
-  # - workflow/polynomial_fit/PolyFit.py
-  - workflow/power_spectrum/processing.ipynb
-  - workflow/power_spectrum/ps_estimation.ipynb
+tasks:
+  - type: bash
+    path: workflow/download_data/download.sh
+  - type: notebook
+    path: workflow/create_mask/pipeline.ipynb
+  - type: notebook
+    path: workflow/pca_substraction/PCA_data_SDC3.ipynb
+  - type: script
+    path: workflow/polynomial_fit/PolyFit.py
+    args:
+      - ../../../data/ZW3.msw_image.fits
+      - results
+      - '3'
+      - 'True'
+  - type: notebook
+    path: workflow/power_spectrum/processing.ipynb
+  - type: notebook
+    path: workflow/power_spectrum/ps_estimation.ipynb
 
 paths:
-  data_cube: '/mnt/sdc3a.MS.0/sdc3dataset/Image/ZW3.msw_image.fits'
+  #data_cube: '/mnt/sdc3a.MS.0/sdc3dataset/Image/ZW3.msw_image.fits'
+  data_cube: '../../../data/ZW3.msw_image.fits'
 
 
